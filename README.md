@@ -16,17 +16,22 @@ $ npm install -g truffle
 ```
 2. Clone this repository and access it's root directory
 ```sh
-$ git clone https://github.com/sumantabose/pet-shop-truffle-ethereum.git
-$ cd pet-shop-truffle-ethereum
+$ git clone https://github.com/sumantabose/pet-shop-ethereum-truffle.git
+$ cd pet-shop-ethereum-truffle
 ```
-3. In the `pet-shop-truffle-ethereum/` root directory truffle compile the smart contracts (see step 5 and 6 below).
+3. In the `pet-shop-ethereum-truffle/` root directory truffle compile the smart contracts (see step 5 and 6 below).
 ```sh
 $ truffle compile
 ```
 4. Download and install [Ganache](http://truffleframework.com/ganache)  (step 7 below).
-5. Migrate the smart contracts (outside the truffle develop environment) to the blockchain (step 7 below).
+5. In the `pet-shop-ethereum-truffle/` root directory run the truffle development console.
 ```sh
-$ truffle migrate
+$ truffle develop
+```
+6. Inside the development console, migrate the smart contracts to the blockchain (step 7 below) and exit using Ctrl + D.
+```sh
+> migrate
+> Ctrl + D
 ```
 6. Run the test on the smart contracts (see step 9 below).
 ```sh
