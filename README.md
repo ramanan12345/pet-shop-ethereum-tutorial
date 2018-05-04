@@ -1,15 +1,50 @@
 # Truffle pet-shop installation and setup guide
-### Source
-1. [http://truffleframework.com/boxes/pet-shop]()
-2. [http://truffleframework.com/tutorials/pet-shop]()
-3. [http://truffleframework.com/tutorials/]()
+#### Compiled by [Sumanta Bose](https://sumantabose.github.io)
+##### Email: [sumanta001@e.ntu.edu.sg](mailto:sumanta001@e.ntu.edu.sg)
 
-### Steps
-1. Install Truffle.
+---
+### Sources
+1. [http://truffleframework.com/boxes/pet-shop](http://truffleframework.com/boxes/pet-shop)
+2. [http://truffleframework.com/tutorials/pet-shop](http://truffleframework.com/tutorials/pet-shop)
+3. [http://truffleframework.com/tutorials/](http://truffleframework.com/tutorials/)
+
+---
+### Steps to install and setup by cloning this repository
+1. Install Truffle if you don't already have it.
 ```sh
 $ npm install -g truffle
 ```
-2. Install pet-shop box in a directory `pet-shop`. To understand the directory structure read [this guide](http://truffleframework.com/tutorials/pet-shop).
+2. Clone this repository and access it's root directory
+```sh
+$ git clone https://github.com/sumantabose/pet-shop-truffle-ethereum.git
+$ cd pet-shop-truffle-ethereum
+```
+3. In the `pet-shop-truffle-ethereum/` root directory truffle compile the smart contracts (see step 5 and 6 below).
+```sh
+$ truffle compile
+```
+4. Download and install [Ganache](http://truffleframework.com/ganache)  (step 7 below).
+5. Migrate the smart contracts (outside the truffle develop environment) to the blockchain (step 7 below).
+```sh
+$ truffle migrate
+```
+6. Run the test on the smart contracts (see step 9 below).
+```sh
+$ truffle test
+```
+7. Interact with the dapp in a browser through MetaMask. The RPC URL is http://127.0.0.1:7545 (see step 11 below).
+8. Start the local web server for UI (see step 12 below).
+```sh
+npm run dev
+```
+
+---
+### Steps to install and setup from scratch
+1. Install Truffle if you don't already have it.
+```sh
+$ npm install -g truffle
+```
+2. Install pet-shop box in a directory `pet-shop`. To understand the directory structure read [this guide](http://truffleframework.com/tutorials/pet-shop#directory-structure).
 ```sh
 $ mkdir pet-shop
 $ cd pet-shop
@@ -52,9 +87,9 @@ contract Adoption {
     owner = msg.sender;
   }
 ```
-5. Go back to the `pet-shop` root directory `/` run the truffle development console.
+5. Go back to the `pet-shop/` root directory run the truffle development console.
 ```sh
-truffle develop
+$ truffle develop
 ```
 6. Compile the smart contracts. Note, inside the development console we don't need to prefix commands with `truffle`. If you're outside prefix commands with `truffle`.
 ```sh
@@ -146,14 +181,14 @@ contract TestAdoption {
 }
 ``` 
 - We start the contract off with 3 imports. The first two imports are referring to global Truffle files, not a `truffle` directory. You should not see a `truffle` directory inside your `test/` directory.
--- `Assert.sol`: Gives us various assertions to use in our tests.
--- `DeployedAddresses.sol`: This smart contract gets the address of the deployed contract.
--- `Adoption.sol`: The smart contract we want to test.
+    - `Assert.sol`: Gives us various assertions to use in our tests.
+    - `DeployedAddresses.sol`: This smart contract gets the address of the deployed contract.
+    - `Adoption.sol`: The smart contract we want to test.
 - Now we can test the `adopt()` function. Recall that upon success it returns the given `petId`. We can ensure an ID was returned and that it's correct by comparing the return value of `adopt()` to the ID we passed in.
 - *Things to notice*:
--- We call the smart contract we declared earlier with the ID of `8`.
--- We then declare an expected value of `8` as well.
--- Finally, we pass the actual value, the expected value and a failure message (which gets printed to the console if the test does not pass) to `Assert.equal()`.
+    - We call the smart contract we declared earlier with the ID of `8`.
+    - We then declare an expected value of `8` as well.
+    - Finally, we pass the actual value, the expected value and a failure message (which gets printed to the console if the test does not pass) to `Assert.equal()`.
 - Note the **memory** attribute on `adopters`. The memory attribute tells Solidity to temporarily store the value in memory, rather than saving it to the contract's storage. Since `adopters` is an array, and we know from the first adoption test that we adopted pet `8`, we compare the testing contracts address with location `8` in the array.
 9. Now we will run the tests.
 - Back in the terminal, run the tests:
@@ -296,12 +331,12 @@ $(function() {
 11. Now we will interact with the dapp in a browser. The easiest way to interact with our dapp in a browser is through [MetaMask](https://metamask.io/), a browser extension for both Chrome and Firefox.
 - If you are a new user of MetaMask, follow the steps given in this [this guide](http://truffleframework.com/tutorials/pet-shop#interacting-with-the-dapp-in-a-browser)
 - If you are existing user of MetaMask the follow the following steps.
--- Logout of MetaMask
--- Click on *Restore from seed phrase*
--- Copy MNEMONIC seed from Ganache App and paste in MetaMask and choose a password of your choice and click *OK*.
--- From the dropdown, we need to connect MetaMask to the blockchain created by Ganache. Click the menu that shows "Main Network" and select *Custom RPC*.
--- In the box titled *New RPC URL* enter http://127.0.0.1:7545 and click *Save*.
--- Go back and confirm balance.
+    - Logout of MetaMask
+    - Click on *Restore from seed phrase*
+    - Copy MNEMONIC seed from Ganache App and paste in MetaMask and choose a password of your choice and click *OK*.
+    - From the dropdown, we need to connect MetaMask to the blockchain created by Ganache. Click the menu that shows "Main Network" and select *Custom RPC*.
+    - In the box titled *New RPC URL* enter http://127.0.0.1:7545 and click *Save*.
+    - Go back and confirm balance.
 
 12. Open `bs-config.json` from the project's root directory and update it to following.
 ```json
@@ -326,5 +361,5 @@ npm run dev
 - You'll also see the same transaction listed in Ganache under the "Transactions" section.
 
 ### Congratulations! 
-You have taken a huge step to becoming a full-fledged dapp developer. For developing locally, you have all the tools you need to start making more advanced dapps. If you'd like to make your dapp live for others to use, stay tuned for our future tutorial on deploying to the Ropsten testnet.
+You have taken a huge step to becoming a full-fledged dapp developer. For developing locally, you have all the tools you need to start making more advanced dapps.
 
