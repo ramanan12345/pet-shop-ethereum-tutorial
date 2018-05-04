@@ -23,7 +23,7 @@ $ cd pet-shop-ethereum-truffle
 ```sh
 $ truffle compile
 ```
-4. Download and install [Ganache](http://truffleframework.com/ganache)  (step 7 below).
+4. Download, install and run [Ganache](http://truffleframework.com/ganache)  (step 7 below).
 5. In the `pet-shop-ethereum-truffle/` root directory run the truffle development console.
 ```sh
 $ truffle develop
