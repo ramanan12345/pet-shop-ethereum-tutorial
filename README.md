@@ -33,12 +33,12 @@ $ truffle develop
 > migrate
 > Ctrl + D
 ```
-6. Run the test on the smart contracts (see step 9 below).
+7. Run the test on the smart contracts (see step 9 below).
 ```sh
 $ truffle test
 ```
-7. Interact with the dapp in a browser through MetaMask. The RPC URL is http://127.0.0.1:7545 (see step 11 below).
-8. Start the local web server for UI (see step 12 below).
+8. Interact with the dapp in a browser through MetaMask. The RPC URL is http://127.0.0.1:7545 (see step 11 below).
+9. Start the local web server for UI (see step 12 below).
 ```sh
 npm run dev
 ```
